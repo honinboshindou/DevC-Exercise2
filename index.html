@@ -1,11 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE <!DOCTYPE html>
+<html>
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Exercise 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://www.betonperkasa.com/app/asset/upload/pictures/bpw-favicon.ico" rel="icon" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script language="javascript" type="text/javascript">
+        var inputValue = 0;
+        var mathOperator;
+        var finalValue = 0;
+    </script>
 </head>
 <body>
-    <center>
-        <h1>Kalkulator</h1>
-    </center>
+    <div class="container" style="width:30em">
+        <div class="row" style="margin-top:1em">
+            <div class="col">
+                <div class="card card-body"><h1>My Calculator</h1></div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:1em">
+            <div class="col">
+                <input type="text" id="DisplayValue" class="card card-body" style="margin-top:1em; text-align:right; width:28em;" value=""/>
+            </div>
+        </div>
+        <div class="row" style="margin-top:1em">
+            <div class="col" style="text-align:center">
+                <button onClick="mathProcess('+')" class="card card-body" style="text-align:center;font:20px;width:100%">
+                    +
+                </button>
+            </div>
+            <div class="col">
+                <button onClick="mathProcess('-')" class="card card-body" style="text-align:center;font:20px;width:100%">
+                    -
+                </button>
+            </div>
+            <div class="col">
+                <button onClick="mathProcess('*')" class="card card-body" style="text-align:center;font:20px;width:100%">
+                    *
+                </button>
+            </div>
+            <div class="col">
+                <button onClick="mathProcess('/')" class="card card-body" style="text-align:center;font:20px;width:100%">
+                    /
+                </button>
+            </div>
+            <div class="col">
+                <button onClick="mathProcess('=')" class="card card-body" style="text-align:center;font:20px;width:100%">
+                    =
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
+<script language="javaScript" type="text/javascript">
+
+    function mathProcess(operator){
+        var newInputValue = 0;
+        var newMathOperator;
+        newInputValue=document.getElementById("DisplayValue").value;
+        newMathOperator=operator;
+        console.log (inputValue + operator + newInputValue)
+        if (inputValue != 0) {
+            if (mathOperator == "+") {
+                finalValue = inputValue + newInputValue;
+            } else if (mathOperator == "-") {
+                finalValue = inputValue - newInputValue;
+            } else if (mathOperator == "*") {
+                finalValue = inputValue * newInputValue;
+            } else if (mathOperator == "/") {
+                finalValue = inputValue / newInputValue;
+            } else {
+                document.getElementById("DisplayValue").value= finalValue;
+                inputValue=0;
+            }
+        }
+        console.log (finalValue)
+        inputValue=newInputValue;
+        mathOperator=newMathOperator;
+
+    }
+</script>
 </html>
